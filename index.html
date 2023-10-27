@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Cost Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+
+</head>
+<body>
+	<div class="calculator-container">
+    <div class="calculator-card">
+		<input type="text" id="calculator-title" class="input-style" placeholder="Введите название">
+
+        <select id="material-select" class="input-style">
+            <option disabled selected>Выберите материал</option>
+        </select>
+        <select id="color-select" class="input-style">
+            <option disabled selected>Выберите цвет</option>
+        </select>
+        <select id="thickness-select" class="input-style">
+            <option disabled selected>Выберите толщину</option>
+        </select>
+        <div class="toggle-group">
+            <input type="radio" id="laser" name="cutting-method" value="laser" checked>
+            <label class="toggle-btn input-style" for="laser">Лазер</label>
+            <input type="radio" id="milling" name="cutting-method" value="milling">
+            <label class="toggle-btn input-style" for="milling">Фреза</label>
+        </div>
+        <div class="toggle-group">
+            <input type="radio" id="sheet" name="measurement" value="sheet" checked>
+            <label class="toggle-btn input-style" for="sheet">Лист</label>
+            <input type="radio" id="m2" name="measurement" value="m2">
+            <label class="toggle-btn input-style" for="m2">Кв. метр</label>
+        </div>
+        <div class="input-row">
+    <input type="number" id="cutting-length" class="input-style" placeholder="Длина реза (м)">
+    <input type="number" id="quantity" class="input-style" placeholder="Кол-во. листов \ кв. метров">
+</div>
+
+      <div class="input-row">
+    <input type="number" id="markup" class="input-style" placeholder="% наценки">
+    <input type="number" id="quantity-production" class="input-style" placeholder="Тираж">
+</div>
+
+        <button id="calculate-btn" class="calculate-btn input-style">Рассчитать</button>
+        <input type="text" id="result" class="input-style" readonly>
+		
+		
+    </div>
+	
+	<div class="calculator-card" >
+    <div id="films-container">
+    <div class="input-row">
+        <select class="film-type input-style">
+            <option value="0" data-price="0" selected>Выберите пленку</option>
+            <option value="1" data-price="250">Монтажная пленка</option>
+            <option value="2" data-price="550">Oracal 641</option>
+            <option value="3" data-price="1250">Oracal 8500</option>
+        </select>
+        <input type="number" class="film-quantity input-style" placeholder="Кол-во. кв. метров">
+    </div>
+</div>
+		
+<button id="add-film-btn" class="action-btn input-style">+</button>
+		
+		<div class="input-row">
+    <label class="input-style">Закатка</label>
+    <input type="number" id="rolling-quantity" class="input-style" placeholder="Кол-во">
+</div>
+<div class="input-row">
+  <select class="print-type input-style">
+    <option value="0" data-price="0" selected>Печать \ Покраска</option>
+    <option value="uf">УФ</option>
+    <option value="souvenir">Сувенир</option>
+    <option value="solvent">Сольвент</option>
+    <option value="banner">Баннер</option>
+	  <option value="paint">Покраска</option>
+  </select>
+  <input type="number" class="print-quantity input-style" placeholder="Кол-во">
+</div>
+
+<div class="input-row">
+  <button id="double-sided-btn" class="toggle-btn">Двусторонняя печать</button>
+<button id="white-fill-btn" class="toggle-btn">Заливка белым</button>
+
+
+</div>
+
+<button id="calculate-secondary-btn" class="action-btn input-style">Рассчитать</button>
+<input type="text" id="secondary-result" class="input-style" readonly>
+
+    </div>
+</div>
+	
+	<div class="all-calculator-card">
+		<div class="toggle-group">
+    <button id="screenshot-btn" class="action-btn input-style">Скриншот</button>
+    <button id="reset-btn" class="action-btn input-style">Сбросить</button>
+	<button id="delivery-btn" class="action-btn input-style">Доставка</button>
+
+		</div>	
+
+  <button id="calculate-total-btn" class="action-btn input-style">Общая сумма</button>
+
+  <input type="text" id="total-result" class="input-style" readonly>
+</div>
+
+
+
+    <script src="app.js"></script>
+</body>
+</html>

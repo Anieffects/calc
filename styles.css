@@ -1,0 +1,320 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Изменено с flex-start на center */
+    margin: 0;
+    background-color: #333;
+    color: #FFF;
+}
+
+body, .input-style, .calculate-btn, .action-btn, select {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #333;
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.calculator-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Добавлено для переноса на новую строку при необходимости */
+}
+
+.calculator-card {
+    position: relative;
+	margin-top: 2%;
+	margin-right: 10px;
+    background-color: #444;
+    padding: 10px 20px 0px 20px;
+    border-radius: 6px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+	padding-top: 30px;
+}
+.toggle-btn {
+    background-color: #555;
+    color: #FFF;
+    border: none;
+    padding: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-btn.active {
+    background-color: #4CAF50;
+    color: #FFF;
+}
+
+
+.all-calculator-card {
+  display: flex;
+  justify-content: space-between; /* Распределение между элементами */
+  align-items: center;
+  margin-top: 10px;
+  background-color: #444;
+  border-radius: 6px;
+  width: 900px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.all-calculator-card .action-btn, .all-calculator-card .input-style {
+  height: 60px;
+  border-radius: 3px;
+  border: none;
+  font-size: 16px;
+  flex: 1; /* Занимает 1 часть доступного пространства */
+}
+
+.all-calculator-card .action-btn {
+  color: #fff;
+  cursor: pointer;
+  background-color: #4CAF50;
+  transition: background-color 0.3s;
+  margin-right: 10px; /* Отступ справа для кнопки */
+}
+
+.all-calculator-card .input-style {
+  padding: 0 10px;
+}
+
+
+
+.input-style, .toggle-btn, .calculate-btn {
+    position: relative;
+    background-color: #555;
+    padding: 15px;
+    border-radius: 3px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #FFF;
+    outline: none;
+    overflow: hidden;
+	  transition: background-color 0.5s ease; /* Плавное изменение фона */
+}
+
+.input-style::before, .toggle-btn::before, .calculate-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent; /* Граница прозрачна по умолчанию */
+    border-radius: inherit;
+    transition: border 0.5s ease; /* Плавное изменение границы */
+}
+
+.input-style:hover::before, .toggle-btn:hover::before, .calculate-btn:hover::before {
+    border-color: #4CAF50; /* Зеленый цвет границы при наведении */
+}
+
+.input-style:hover, .toggle-btn:hover, .calculate-btn:hover {
+    background-color: #666; /* Слегка темнее фон при наведении */
+}
+.input-style:hover::before, .toggle-btn:hover::before, .calculate-btn:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 2px solid #4CAF50; /* Зеленый цвет */
+    border-radius: 3px; /* Радиус границы, чтобы соответствовать радиусу элемента */
+    transition: all 0.4s ease-in-out; /* Плавное изменение границы и фона */
+	transition: border 0.5s ease; /* Плавное изменение границы */
+}
+
+.input-style:hover, .toggle-btn:hover, .calculate-btn:hover {
+    background-color: #666; /* Слегка темнее фон при наведении */
+}
+
+.toggle-btn, .calculate-btn {
+    cursor: pointer;
+}
+
+
+.input-style, .toggle-btn, .calculate-btn {
+    position: relative;
+    background-color: #555;
+    border: 1px solid #666;
+    padding: 15px;
+    border-radius: 3px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #FFF;
+    outline: none;
+    overflow: hidden; /* Убедитесь, что псевдо-граница не выходит за пределы элемента */
+}
+
+.toggle-btn, .calculate-btn {
+    cursor: pointer;
+}
+
+.toggle-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+/* Добавьте этот CSS класс, чтобы стилизовать кнопку "Доставка" */
+#delivery-btn {
+    background-color: #555;
+    color: #FFF;
+    border: none;
+    padding: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#delivery-btn.active {
+    background-color: #4CAF50;
+    color: #FFF;
+}
+
+
+/* Стиль для равномерного распределения кнопок */
+.calculator-card .toggle-group {
+    justify-content: space-between;
+}
+
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked + .toggle-btn {
+    background-color: #4CAF50;
+}
+
+.toggle-btn {
+    flex-basis: 48%;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.input-row .input-style {
+    width: 48%;
+}
+
+#calculate-btn {
+    background-color: #4C74C9;
+}
+
+#calculate-secondary-btn {
+    background-color: #4C74C9;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.action-btn {
+    flex-basis: 48%;
+    cursor: pointer;
+    background-color: #555;
+    border: 1px solid #666;
+    padding: 15px;
+    border-radius: 3px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-family: 'PT Sans', sans-serif;
+    color: #FFF;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.input-style {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+#screenshot-btn {
+    background-color: #FF8A00;
+}
+
+#reset-btn {
+    background-color: #DE4849;
+}
+
+#reset-secondary-btn {
+    background-color: #DE4849;
+}
+
+#next-btn {
+    background-color: #4CAF50; /* Зеленый цвет */
+    color: #FFF;
+}
+
+#add-film-btn{
+    background-color: #4CAF50; /* Зеленый цвет */
+    color: #FFF;
+}
+
+.action-btn:hover {
+    background-color: #666;
+}
+
+.add-card-btn {
+	
+    background-color: #4CAF50;
+    color: #FFF;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-card-btn:hover {
+    background-color: #45a049;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+}
+
+.calculator-container {
+    flex-grow: 1;
+}
